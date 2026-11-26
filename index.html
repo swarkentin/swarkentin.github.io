@@ -45,6 +45,13 @@
     .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 20px; }
     h2 { margin: 7px 0 0; font: 600 clamp(30px, 4vw, 43px)/1.05 var(--display); letter-spacing: -.045em; }
     .section-note { max-width: 300px; margin: 0; color: var(--muted); font-size: 13px; }
+    .work-feature { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 22px 26px; border: 1px solid #292e28; background: #242a24; color: #f7f5ef; text-decoration: none; transition: background .2s ease, border-color .2s ease; }
+    .work-feature:hover { color: #fff; background: #303a30; border-color: #536b53; }
+    .work-copy { max-width: 760px; }
+    .work-feature .project-meta { color: #b5c5ae; }
+    .work-feature p { max-width: 720px; margin: 14px 0 16px; color: #e1e4dc; font-size: 15px; line-height: 1.6; }
+    .work-link { display: inline-flex; gap: 12px; align-items: center; color: #f2a18c; font: 11px var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+    .work-mark { flex: 0 0 auto; display: grid; place-items: center; width: 82px; height: 82px; border: 1px solid #677465; border-radius: 50%; color: #d4dfce; font: 600 25px var(--display); letter-spacing: -.06em; }
     .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
     .project { overflow: hidden; background: var(--card); border: 1px solid var(--line); }
     .project-image { display: block; overflow: hidden; aspect-ratio: 16 / 9; background: #dedbd1; border-bottom: 1px solid var(--line); }
@@ -77,6 +84,8 @@
       .section-head { display: block; }
       .section-note { margin-top: 14px; }
       .projects, .music-band { grid-template-columns: 1fr; }
+      .work-feature { padding: 19px; }
+      .work-mark { width: 58px; height: 58px; font-size: 19px; }
       .project p { min-height: 0; }
       .contrib { grid-template-columns: 1fr auto; gap: 5px 16px; }
       .contrib p { grid-column: 1 / -1; grid-row: 2; }
@@ -91,6 +100,7 @@
     <div class="wrap topline">
       <a class="wordmark" href="#" style="text-decoration:none">Sheldon Warkentin</a>
       <nav aria-label="Main navigation">
+        <a href="#work">Work</a>
         <a href="#projects">Projects</a>
         <a href="#music">Music</a>
         <a href="#utilities">Utilities</a>
@@ -112,10 +122,27 @@
       </aside>
     </div>
 
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="section-kicker">01 / Professional work</div><h2>Training the next generation of AI</h2></div>
+          <p class="section-note">The work I’m focused on professionally.</p>
+        </div>
+        <a class="work-feature" href="https://rl.bugcrowd.com/">
+          <div class="work-copy">
+            <div class="project-meta"><span>Bugcrowd</span><span>Reinforcement learning</span></div>
+            <p>Developing training curriculum for reinforcement-learning systems used to build AI models. The focus is helping agents develop practical software-security skills through real-world challenges, with clear objectives and verifiable outcomes.</p>
+            <span class="work-link">Explore Bugcrowd RL <span aria-hidden="true">↗</span></span>
+          </div>
+          <span class="work-mark" aria-hidden="true">RL</span>
+        </a>
+      </div>
+    </section>
+
     <section id="projects">
       <div class="wrap">
         <div class="section-head">
-          <div><div class="section-kicker">01 / Things in progress</div><h2>Selected projects</h2></div>
+          <div><div class="section-kicker">02 / Things in progress</div><h2>Selected projects</h2></div>
           <p class="section-note">A few recent experiments that escaped the notebook and made it onto the internet.</p>
         </div>
         <div class="projects">
@@ -161,7 +188,7 @@
     <section id="utilities">
       <div class="wrap">
         <div class="section-head">
-          <div><div class="section-kicker">02 / Utilities</div><h2>Small, useful tools</h2></div>
+          <div><div class="section-kicker">03 / Utilities</div><h2>Small, useful tools</h2></div>
         </div>
         <div class="projects">
           <article class="project">
@@ -183,7 +210,7 @@
     <section id="music">
       <div class="wrap music-band">
         <div>
-          <div class="section-kicker">03 / Music</div>
+          <div class="section-kicker">04 / Music</div>
           <h2>Making noise<br>on purpose.</h2>
           <p class="music-copy">I make electronic music under the Crocs & Socks / djcrocsnsocks names. Mostly synths, drum machines, and a healthy amount of knob turning. Here are a few places to listen.</p>
         </div>
