@@ -29,21 +29,19 @@
     a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
     a:hover { color: var(--accent); }
     .wrap { width: min(1100px, calc(100% - 48px)); margin: 0 auto; }
-    header { padding: 24px 0; border-bottom: 1px solid var(--line); }
+    header { position: sticky; top: 0; z-index: 20; padding: 13px 0; border-bottom: 1px solid var(--line); background: rgba(244,241,233,.96); backdrop-filter: blur(10px); }
     .topline { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .wordmark { font: 500 13px var(--mono); letter-spacing: .04em; text-transform: uppercase; }
     nav { display: flex; gap: 22px; font: 12px var(--mono); color: var(--muted); }
     nav a { text-decoration: none; }
-    .hero { padding: clamp(76px, 12vw, 140px) 0 96px; display: grid; grid-template-columns: 1fr minmax(210px, 300px); gap: 60px; align-items: end; }
+    .hero { padding: 34px 0 38px; display: grid; grid-template-columns: 1fr minmax(210px, 300px); gap: 40px; align-items: center; }
     .eyebrow, .section-kicker { font: 11px var(--mono); letter-spacing: .13em; text-transform: uppercase; color: var(--green); }
-    h1 { margin: 20px 0 22px; max-width: 760px; font: 600 clamp(48px, 8vw, 88px)/.98 var(--display); letter-spacing: -.065em; }
-    h1 span { color: var(--accent); }
     .intro { max-width: 590px; margin: 0; color: #55594f; font-size: clamp(17px, 2vw, 20px); line-height: 1.6; }
     .hero-aside { border-left: 1px solid var(--line); padding: 8px 0 8px 24px; color: var(--muted); font-size: 13px; }
     .hero-aside strong { display: block; margin-bottom: 8px; color: var(--ink); font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .08em; }
     .hero-aside p { margin: 0 0 18px; }
     .hero-aside a { color: var(--ink); }
-    section { padding: 74px 0; border-top: 1px solid var(--line); }
+    section { padding: 44px 0; border-top: 1px solid var(--line); scroll-margin-top: 64px; }
     .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 30px; }
     h2 { margin: 7px 0 0; font: 600 clamp(30px, 4vw, 43px)/1.05 var(--display); letter-spacing: -.045em; }
     .section-note { max-width: 300px; margin: 0; color: var(--muted); font-size: 13px; }
@@ -72,9 +70,10 @@
     @media (max-width: 720px) {
       .wrap { width: min(100% - 32px, 540px); }
       nav { gap: 12px; font-size: 10px; }
-      .hero { grid-template-columns: 1fr; gap: 32px; padding: 76px 0 68px; }
+      .wordmark { font-size: 11px; }
+      .hero { grid-template-columns: 1fr; gap: 20px; padding: 26px 0 30px; }
       .hero-aside { max-width: 360px; }
-      section { padding: 56px 0; }
+      section { padding: 38px 0; }
       .section-head { display: block; }
       .section-note { margin-top: 14px; }
       .projects, .music-band { grid-template-columns: 1fr; }
@@ -90,11 +89,11 @@
 <body>
   <header>
     <div class="wrap topline">
-      <a class="wordmark" href="#" style="text-decoration:none">SW / 2026</a>
+      <a class="wordmark" href="#" style="text-decoration:none">Sheldon Warkentin</a>
       <nav aria-label="Main navigation">
         <a href="#projects">Projects</a>
         <a href="#music">Music</a>
-        <a href="#open-source">Open source</a>
+        <a href="#utilities">Utilities</a>
         <a href="https://github.com/swarkentin">GitHub ↗</a>
       </nav>
     </div>
@@ -103,8 +102,6 @@
   <main>
     <div class="wrap hero">
       <div>
-        <div class="eyebrow">Software / sound / side quests</div>
-        <h1>Making things<br>that <span>do things.</span></h1>
         <p class="intro">I'm Sheldon — a software engineer who likes building useful tools, odd little games, and systems that make music more fun. This is a small collection of what I've been working on lately.</p>
       </div>
       <aside class="hero-aside">
@@ -122,6 +119,23 @@
           <p class="section-note">A few recent experiments that escaped the notebook and made it onto the internet.</p>
         </div>
         <div class="projects">
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </section>
+
+    <section id="utilities">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="section-kicker">02 / Utilities</div><h2>Small, useful tools</h2></div>
+        </div>
+        <div class="projects">
           <article class="project">
             <a class="project-image" href="https://github.com/swarkentin/rehome" aria-label="View Rehome project">
               <img src="https://raw.githubusercontent.com/swarkentin/rehome/main/screenshots/example.png" alt="Rehome Windows folder context menu and move workflow" loading="lazy">
@@ -133,42 +147,6 @@
               <div class="links"><a href="https://github.com/swarkentin/rehome">Source code ↗</a><a href="https://github.com/swarkentin/rehome/releases">Download ↗</a></div>
             </div>
           </article>
-
-          <article class="project">
-            <a class="project-image" href="https://room-blend.onrender.com" aria-label="Open Room Blend">
-              <img src="https://raw.githubusercontent.com/swarkentin/room-blend/main/docs/images/host-console.png" alt="Room Blend host console showing the room and shared music queue" loading="lazy">
-            </a>
-            <div class="project-body">
-              <div class="project-meta"><span>Collaborative music</span><span>JavaScript</span></div>
-              <h3>Room Blend</h3>
-              <p>A group jukebox that blends everyone's taste into one queue. Guests join from their phones; the host plays from their own music sources.</p>
-              <div class="links"><a href="https://github.com/swarkentin/room-blend">Source code ↗</a><a href="https://room-blend.onrender.com">Open the app ↗</a></div>
-            </div>
-          </article>
-
-          <article class="project">
-            <a class="project-image" href="https://heart-of-the-beast.onrender.com" aria-label="Open Heart of the Beast">
-              <img src="https://raw.githubusercontent.com/swarkentin/heart-of-the-beast/main/docs/images/readme-screenshot.png" alt="Heart of the Beast pixel-art dungeon game" loading="lazy">
-            </a>
-            <div class="project-body">
-              <div class="project-meta"><span>Co-op roguelike</span><span>Go / TypeScript</span></div>
-              <h3>Heart of the Beast</h3>
-              <p>A social-first dungeon crawler for solo adventurers or a small party. Explore strange places, make tactical choices, and see how deep the expedition goes.</p>
-              <div class="links"><a href="https://github.com/swarkentin/heart-of-the-beast">Source code ↗</a><a href="https://heart-of-the-beast.onrender.com">Play the game ↗</a></div>
-            </div>
-          </article>
-
-          <article class="project">
-            <a class="project-image" href="https://swarkentin.github.io/synth-patch-hero/" aria-label="Play Synth Patch Hero">
-              <img src="https://raw.githubusercontent.com/swarkentin/synth-patch-hero/main/docs/screenshots/desktop.png" alt="Synth Patch Hero modular synthesizer puzzle board" loading="lazy">
-            </a>
-            <div class="project-body">
-              <div class="project-meta"><span>Browser synth game</span><span>Web Audio</span></div>
-              <h3>Synth Patch Hero</h3>
-              <p>A puzzle game about building synth patches. Take gigs, wire modules, shape sounds, and learn a little synthesis along the way.</p>
-              <div class="links"><a href="https://github.com/swarkentin/synth-patch-hero">Source code ↗</a><a href="https://swarkentin.github.io/synth-patch-hero/">Play now ↗</a></div>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -176,7 +154,7 @@
     <section id="music">
       <div class="wrap music-band">
         <div>
-          <div class="section-kicker">02 / Away from the keyboard</div>
+          <div class="section-kicker">03 / Away from the keyboard</div>
           <h2>Making noise<br>on purpose.</h2>
           <p class="music-copy">I make electronic music under the Crocs & Socks / djcrocsnsocks names. Mostly synths, drum machines, and a healthy amount of knob turning. Here are a few places to listen.</p>
         </div>
@@ -188,41 +166,11 @@
       </div>
     </section>
 
-    <section id="open-source">
-      <div class="wrap">
-        <div class="section-head">
-          <div><div class="section-kicker">03 / Shared work</div><h2>Open source contributions</h2></div>
-          <p class="section-note">A handful of merged contributions to projects beyond my own repositories.</p>
-        </div>
-        <div class="contrib-list">
-          <div class="contrib">
-            <strong>Keycloak Atlassian Identity Provider</strong>
-            <p>Added an Atlassian 3LO social identity provider integration.</p>
-            <a href="https://github.com/ForAllSecure/keycloak-atlassian-identity-provider/pull/1">Merged PR ↗</a>
-          </div>
-          <div class="contrib">
-            <strong>Valico</strong>
-            <p>Fixed handling of escaped forward slashes in JSON strings during regular-expression parsing.</p>
-            <a href="https://github.com/s-panferov/valico/pull/75">Merged PR ↗</a>
-          </div>
-          <div class="contrib">
-            <strong>DOMjudge</strong>
-            <p>Fixed Composer installation in the base installation script.</p>
-            <a href="https://github.com/DOMjudge/domjudge/pull/1449">Merged PR ↗</a>
-          </div>
-          <div class="contrib">
-            <strong>Mayhem / ForAllSecure tooling</strong>
-            <p>Contributions across GitHub Actions, CircleCI integrations, examples, and API fuzzing workflows.</p>
-            <a href="https://github.com/pulls?q=is%3Apr+author%3Aswarkentin+is%3Amerged">More merged PRs ↗</a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="wrap">
     <span>© 2026 Sheldon Warkentin</span>
-    <span>Built by hand · No tracking · <a href="https://github.com/swarkentin/swarkentin.github.io">Site source</a></span>
+    <span><a href="https://github.com/swarkentin/swarkentin.github.io">Site source</a></span>
   </footer>
 </body>
 </html>
